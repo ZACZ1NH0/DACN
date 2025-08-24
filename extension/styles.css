@@ -1,0 +1,13 @@
+
+/* Page toast styling */
+#malicious-warning { position: fixed; bottom: 20px; right: 20px; z-index: 2147483647; }
+#malicious-warning .mw-wrap {
+  background:#fff; color:#111827; border-left:6px solid #ef4444; min-width:260px; max-width:360px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15); border-radius:12px; overflow:hidden; font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+#malicious-warning .mw-header { display:flex; align-items:center; gap:8px; padding:10px 12px; border-bottom:1px solid #f3f4f6; }
+#malicious-warning .mw-icon { font-size:16px; }
+#malicious-warning .mw-close { margin-left:auto; border:0; background:transparent; font-size:18px; line-height:1; cursor:pointer; color:#6b7280; }
+#malicious-warning .mw-body { padding:10px 12px; }
+#malicious-warning .mw-url { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:320px; color:#374151; }
+#malicious-warning .mw-error { margin-top:4px; font-size:12px; color:#6b7280; }

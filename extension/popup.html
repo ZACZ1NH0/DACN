@@ -1,0 +1,70 @@
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malicious URL Checker</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; }
+    .container { width: 340px; padding: 14px; }
+    .row { display:flex; align-items:center; justify-content:space-between; margin: 8px 0; }
+    .muted { color:#6b7280; font-size:12px; }
+    .section { border:1px solid #e5e7eb; border-radius:12px; padding:12px; margin-top:10px; }
+    .section h3 { margin:0 0 8px; font-size:14px; }
+    input[type="text"], input[type="url"] { width:100%; padding:8px; border:1px solid #d1d5db; border-radius:8px; }
+    button { padding:8px 10px; border:0; border-radius:8px; cursor:pointer; }
+    .btn { background:#111827; color:white; }
+    .btn-alt { background:#e5e7eb; }
+    .result { margin-top:10px; padding:8px; border-radius:8px; font-size:13px; }
+    .ok { background:#ecfdf5; border:1px solid #a7f3d0; }
+    .bad { background:#fef2f2; border:1px solid #fecaca; }
+    .err { background:#f3f4f6; border:1px solid #e5e7eb; }
+    .pill { padding:3px 8px; border-radius:999px; font-size:12px; }
+    .pill.on { background:#dcfce7; border:1px solid #86efac; }
+    .pill.off { background:#fee2e2; border:1px solid #fecaca; }
+    .flex { display:flex; gap:8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <strong>Malicious URL Checker</strong>
+      <span id="pillState" class="pill off">Đang tắt</span>
+    </div>
+
+    <div class="section">
+      <div class="row">
+        <div>Quét tự động (hover)</div>
+        <label>
+          <input id="toggleEnabled" type="checkbox"> Bật
+        </label>
+      </div>
+      <div class="muted">Khi bật, extension sẽ tự kiểm tra đường link khi bạn rê chuột.</div>
+    </div>
+
+    <div class="section">
+      <h3>Chẩn đoán thủ công</h3>
+      <input id="manualUrl" type="url" placeholder="Dán URL cần kiểm tra..." />
+      <div class="flex" style="margin-top:8px;">
+        <button id="btnCheck" class="btn">Kiểm tra</button>
+        <button id="btnPaste" class="btn-alt">Dán từ clipboard</button>
+      </div>
+      <div id="manualResult" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="section">
+      <h3>Cài đặt</h3>
+      <label class="muted">API base URL (ví dụ: https://abcd-1234.ngrok-free.app)</label>
+      <input id="apiBase" type="text" placeholder="http://127.0.0.1:5000" />
+      <label class="muted" style="margin-top:6px; display:block;">Endpoint</label>
+      <input id="endpoint" type="text" placeholder="/check" />
+      <div class="row" style="margin-top:8px;">
+        <button id="btnSave" class="btn">Lưu</button>
+        <button id="btnTest" class="btn-alt">Thử kết nối</button>
+      </div>
+    </div>
+
+    <div class="muted" style="margin-top:10px;">Tip: dùng HTTPS ở apiBase nếu có thể (ngrok https) để ổn định.</div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html></script>
